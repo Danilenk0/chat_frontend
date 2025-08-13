@@ -1,0 +1,175 @@
+@import "./variables";
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-list-section {
+  border-right: 1px solid $gray-color-light;
+  height: 100vh;
+  flex-shrink: 0; 
+  @include flex-col;
+  gap: 1.6rem;
+  form {
+    padding: 20px 20px 0px 20px;
+    .form-group {
+      @include flex-row;
+      background-color: $gray-color-light;
+      width: 100%;
+      border-radius: 50px;
+      padding: 7px 10px;
+      color: $gray-color-heavy;
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 0.8rem;
+        margin-left: 5px;
+      }
+    }
+  }
+  .chat-list {
+    @include flex-col;
+    gap: 0.6rem;
+    width: 100%;
+    background-color: white;
+    .button-group {
+      @include flex-row();
+      padding: 0px 20px;
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 0.8rem;
+        color: $gray-color-heavy;
+        @include basicTransition;
+        &:hover {
+          cursor: pointer;
+          color: black;
+        }
+      }
+      .button-active{
+        color:  black
+      }
+    }
+    ul {
+      @include flex-col;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      .chat-list-item {
+        @include flex-row;
+        padding: 10px 20px;
+        gap: 10px;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: $gray-color-light;
+        }
+        .list-item-img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      .item-info {
+        @include flex-col;
+        flex-grow: 1;
+        header {
+          @include flex-row;
+          justify-content: space-between;
+          h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+          }
+          time {
+            font-size: 0.7rem;
+            color: $gray-color-heavy;
+          }
+        }
+        .item-info-message {
+          color: $gray-color-heavy;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+.skeleton {
+  pointer-events: none;
+  user-select: none;
+
+  .skeleton-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+    background-size: 400% 100%;
+    animation: loading 1.4s ease infinite;
+  }
+
+  .skeleton-line {
+    height: 12px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+    background-size: 400% 100%;
+    animation: loading 1.4s ease infinite;
+  }
+
+  .skeleton-title {
+    width: 120px;
+    height: 16px;
+    margin-bottom: 4px;
+  }
+
+  .skeleton-time {
+    width: 40px;
+    height: 12px;
+  }
+
+  .skeleton-text {
+    width: 180px;
+    height: 12px;
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  
+}
+
+@media (max-width: 768px) {
+  .chat-list-section {
+    width: 100%;
+    height: 100vh;
+    flex: 1;
+  }
+}
+@media (max-width: 1024px) {
+  .chat-list-section{
+    width:30%;
+  }
+}

@@ -1,0 +1,70 @@
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  translate: -50% 0%;
+  z-index: 999;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  gap: 10px;
+  font-size: 0.7rem;
+
+  i {
+    font-size: 1.2rem;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    h6 {
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin: 0px 0px 0px 0px;
+    }
+    p {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgb(84, 110, 122);
+    }
+  }
+}
+
+.alert-success {
+  background-color: rgb(232, 245, 233);
+  border: 1px solid rgb(67, 160, 71);
+  i {
+    color: rgb(67, 160, 71);
+  }
+}
+.alert-warning {
+  background-color: rgb(255, 243, 224);
+  border: 1px solid rgb(255, 152, 0);
+  i {
+    color: rgb(255, 152, 0);
+  }
+}
+.alert-error {
+  background-color: rgb(255, 235, 238);
+  border: 1px solid rgb(244, 67, 54);
+  i {
+    color: rgb(244, 67, 54);
+  }
+}
+
+@media (max-width: 576px) {
+  .alert {
+    width: 80%;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .alert {
+    width: 70%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .alert {
+    width: 60%;
+  }
+}

@@ -1,0 +1,169 @@
+@import "./variables";
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  .form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    .form {
+      width: 80%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      h1 {
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 0.94rem;
+      }
+
+      .form-group {
+        position: relative;
+        width: 100%;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        input {
+          width: 100%;
+          padding: 1rem;
+          font-size: 1rem;
+          font-weight: 400;
+          border: 1px solid $gray-color-heavy;
+          border-radius: 10px;
+          background: transparent;
+          outline: none;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: rgb(54, 122, 255);
+          }
+        }
+
+        label {
+          position: absolute;
+          top: 50%;
+          left: 1rem;
+          transform: translateY(-50%);
+          font-size: 1rem;
+          color: rgb(154, 154, 154);
+          background-color: white;
+          padding: 0 5px;
+          transition: all 0.3s ease;
+          pointer-events: none;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+          top: 0;
+          transform: translateY(-50%);
+          color: rgb(54, 122, 255);
+          font-size: 0.87rem;
+          font-weight: 500;
+        }
+      }
+      .remember {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1.26rem;
+        input {
+          border: 2px solid rgb(0, 0, 0);
+          width: 1.12rem;
+          height: 1.12rem;
+        }
+      }
+      .btn {
+        border: none;
+        padding: 1rem 0;
+        border-radius: 10px;
+        width: 100%;
+        font-weight: 600;
+        font-size: 1.12rem;
+      }
+      .form-btn {
+        background-color: rgb(54, 122, 255);
+        color: #fff;
+        &:hover {
+          box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.236);
+          transition: all ease-in-out 0.3s;
+        }
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        hr {
+          flex: 1;
+          border: none;
+          height: 1px;
+          background-color: #ccc;
+        }
+      }
+      .google-btn {
+        background-color: white;
+        color: black;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+        transition: all ease-in-out 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        &:hover {
+          box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.236);
+        }
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      p {
+        font-size: 1.12rem;
+        align-self: center;
+        margin-top: 2rem;
+        a {
+          color: rgb(54, 122, 255);
+        }
+      }
+    }
+  }
+
+  .image {
+    width: 50%;
+    height: 100%;
+    background-image: url("../../assets/images/authimage.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px 0px 0px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container .form-wrapper {
+    width: 100%;
+  }
+  .image {
+    display: none;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .alert {
+    width: 60%;
+  }
+}
