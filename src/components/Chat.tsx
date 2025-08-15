@@ -1,5 +1,5 @@
 import "../assets/styles/Chat.scss";
-import UserImage from "../assets/images/UserImage.png";
+import standartProfilePic from "../assets/images/standartProfilePic.png";
 
 const Chat = () => {
   return (
@@ -7,11 +7,14 @@ const Chat = () => {
       <header className="chat-header">
         <div className="user">
           <div className="image">
-            <img src={UserImage} alt="user image" />
+            <img src={standartProfilePic} alt="user image" />
           </div>
           <div className="user-info">
             <h6>Mihail Danilenko</h6>
-            <div className="user-status"><div className="status"></div><p>Offline</p></div>
+            <div className="user-status">
+              <div className="status"></div>
+              <p>Offline</p>
+            </div>
           </div>
         </div>
         <div className="header-btn-control">

@@ -8,11 +8,10 @@ import UseAuthStore from "../store/AuthStore";
 import UseMessageStore from "../store/MessageStore";
 import Alert from "../components/Alert";
 
-
 const SignUp = () => {
-  const { signup} = UseAuthStore();
-  const {message, setMessage} = UseMessageStore();
-  const {checkAuth, isLoggedIn} = UseAuthStore();
+  const { signup } = UseAuthStore();
+  const { message, setMessage } = UseMessageStore();
+  const { checkAuth, isLoggedIn } = UseAuthStore();
   const [formData, setFormData] = useState({
     fullName: "",
     password: "",
@@ -28,7 +27,7 @@ const SignUp = () => {
     });
   };
 
-  const handleSubmit = async(e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.password !== formData.repeatPassword) {
       return setMessage("error", "Passwords do not match");

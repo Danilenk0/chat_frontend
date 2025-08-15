@@ -3,19 +3,19 @@ interface ChatListItemProps {
   fullName: string;
   message: string;
   time: string;
-  userImage: string;
+  profilePic: string;
 }
 const ChatListItem: React.FC<ChatListItemProps> = ({
   fullName,
   message,
   time,
-  userImage,
+  profilePic,
 }) => {
   return (
     <li className="chat-list-item">
       <div className="list-item-img">
-        <img src={userImage} alt="" />
-        <div className="isOnline"></div>
+        <img src={profilePic} alt="" />
+        <div className="status"></div>
       </div>
 
       <div className="item-info">

@@ -28,7 +28,7 @@ const SignIn = () => {
     e.preventDefault();
     await signin(formData);
     await checkAuth();
-    if (isLoggedIn ) {
+    if (isLoggedIn) {
       navigate("/");
     }
   };

@@ -5,7 +5,7 @@
   translate: -50% 0%;
   z-index: 999;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 0.8rem;
   display: flex;
   gap: 10px;
   font-size: 0.7rem;
@@ -25,6 +25,7 @@
       font-size: 0.8rem;
       font-weight: 400;
       color: rgb(84, 110, 122);
+      margin: 0px 0px 0px 0px;
     }
   }
 }

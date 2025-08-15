@@ -7,16 +7,21 @@ import UseAuthStore from "../store/AuthStore";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { checkAuth, user } = UseAuthStore();
+  const { checkAuth, isLoggedIn, isLoading } = UseAuthStore();
+
   useEffect(() => {
     const fetchData = async () => {
       await checkAuth();
-      if (user === null) {
-        navigate("/signin");
-      }
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (!isLoggedIn && !isLoading) {
+      navigate("/signin");
+    }
+  }, [isLoggedIn, isLoading, navigate]);
+
   return (
     <div className="wrapper">
       <ChatList />

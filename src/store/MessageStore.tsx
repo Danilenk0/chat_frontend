@@ -1,20 +1,20 @@
 import { create } from "zustand";
 type Message = {
   type: "success" | "warning" | "error";
-  text:string
+  text: string;
 };
 interface MessageState {
   message: Message;
-  setMessage:(type:"success" | "warning" | "error", text:string)=>void;
-  clearMessage:()=>void;
+  setMessage: (type: "success" | "warning" | "error", text: string) => void;
+  clearMessage: () => void;
 }
 
-const UseMessageStore = create<MessageState>((set)=>({
-    message:{
-        type:"success",
-        text:"",
-    },
-    setMessage:(type, text) => {
+const UseMessageStore = create<MessageState>((set) => ({
+  message: {
+    type: "success",
+    text: "",
+  },
+  setMessage: (type, text) => {
     set({
       message: {
         type,
@@ -22,14 +22,14 @@ const UseMessageStore = create<MessageState>((set)=>({
       },
     });
   },
-  clearMessage:()=>{
+  clearMessage: () => {
     set({
-        message:{
-            type:"success",
-            text:""
-        }
-    })
-  }
-}))
+      message: {
+        type: "success",
+        text: "",
+      },
+    });
+  },
+}));
 
 export default UseMessageStore;

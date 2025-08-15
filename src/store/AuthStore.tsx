@@ -28,7 +28,7 @@ interface SignUpState {
 }
 
 const UseAuthStore = create<AuthState>((set) => ({
-  isLoading: false,
+  isLoading: true,
   user: null,
   isLoggedIn: false,
   signin: async (data: SignInState) => {
@@ -91,13 +91,12 @@ const UseAuthStore = create<AuthState>((set) => ({
     }
   },
   checkAuth: async () => {
+    set({ isLoading: true });
     try {
-      const response = await axios.get("http://localhost:5001/api/auth/check",{
-        withCredentials:true
+      const response = await axios.get("http://localhost:5001/api/auth/check", {
+        withCredentials: true,
       });
-
-      set({ isLoggedIn: true, user: response.data });
-      console.log(response.data);
+      set({ isLoggedIn: true, user: response.data, isLoading: false });
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
       if (err?.response?.data?.message) {
@@ -111,6 +110,7 @@ const UseAuthStore = create<AuthState>((set) => ({
           err.message || "Unknown error"
         );
       }
+      set({ isLoggedIn: false, user: null, isLoading: false });
     }
   },
 }));
